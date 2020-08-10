@@ -1,5 +1,5 @@
 {
-    "name": "geofield_suntimes",
+    "name": "timcosgrove/geofield_suntimes",
     "type": "drupal-module",
     "description": "Provides sunrise and sunset times based on location and date.",
     "minimum-stability": "dev",

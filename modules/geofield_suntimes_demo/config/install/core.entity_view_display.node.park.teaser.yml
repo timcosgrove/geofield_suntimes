@@ -1,0 +1,24 @@
+uuid: f813fe6d-f76e-452f-8e4e-105dd70c2bfc
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.park.field_geolocation
+    - node.type.park
+  module:
+    - user
+_core:
+  default_config_hash: TWwHL7xZ1byWV2ydGVzyE10uavWRlxOyQMeQqcwuTVo
+id: node.park.teaser
+targetEntityType: node
+bundle: park
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_geolocation: true

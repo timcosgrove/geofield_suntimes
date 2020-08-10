@@ -1,0 +1,20 @@
+uuid: 5bcc8a90-f5f6-41b7-bab1-8dad67f16386
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.park
+_core:
+  default_config_hash: kNvCaF9EcGaMsHfRqeZOuYIQQTcqBrcTbU6b1dvbV2Y
+id: node.park.title
+field_name: title
+entity_type: node
+bundle: park
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

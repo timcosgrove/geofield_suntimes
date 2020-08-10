@@ -1,0 +1,27 @@
+uuid: bb3ecc66-2c7c-423d-a4ef-ff6026bd5e75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.park.field_geolocation
+    - node.type.park
+  module:
+    - geofield_suntimes
+    - user
+_core:
+  default_config_hash: o84Rom9g7tZIPfDnOTbOZKqfXv45XBvF0y7H6LT49oI
+id: node.park.default
+targetEntityType: node
+bundle: park
+mode: default
+content:
+  field_geolocation:
+    weight: 0
+    label: above
+    settings:
+      output_format: wkt
+    third_party_settings: {  }
+    type: latlon_suntimes
+    region: content
+hidden:
+  links: true

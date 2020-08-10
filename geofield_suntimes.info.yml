@@ -1,0 +1,8 @@
+name: 'geofield_suntimes'
+type: module
+description: 'Provides sunrise and sunset times based on location and date.'
+core: 8.x
+package: 'Custom'
+
+dependencies:
+  - geofield

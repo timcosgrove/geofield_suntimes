@@ -99,7 +99,7 @@ class SuntimesService implements GeofieldSuntimesInterface {
     $timezone = $this->timezoneService->getTimezone($lat, $lng);
     $output = [];
     foreach ($return_array as $event) {
-      $output[$event] = DrupalDateTime::createFromFormat('Y-m-d\TH:i:sP', $body['results'][$event])->format('Y-m-d H:i:s', ['timezone' => $timezone['timeZoneId']]);
+      $output[$event] = DrupalDateTime::createFromFormat('Y-m-d\TH:i:sP', $body['results'][$event])->format('Y-m-d H:i:s T', ['timezone' => $timezone['timeZoneId']]);
     }
     return $output;
 

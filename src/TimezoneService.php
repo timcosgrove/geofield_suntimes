@@ -68,8 +68,8 @@ class TimezoneService implements GeofieldSuntimesTimezoneInterface {
     $queryOptions = [
       'query' => [
         'location' => $location,
-        // This is gross and absolutely the wrong way to do this!
-        'key' => 'AIzaSyCBePk-P_cQhmVlnDyHf8ykLsTPXBMw0O0',
+        // Key needs to be pulled from config or secrets.
+        'key' => '',
         'timestamp' => time(),
       ],
 

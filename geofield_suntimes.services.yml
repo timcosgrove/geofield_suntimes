@@ -7,4 +7,4 @@ services:
     arguments: ['@http_client_factory', '@geofield_suntimes.timezone']
   geofield_suntimes.timezone:
     class: Drupal\geofield_suntimes\TimezoneService
-    arguments: ['@http_client_factory']
+    arguments: ['@http_client_factory', '@config.factory']

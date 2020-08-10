@@ -1,0 +1,7 @@
+geofield_suntimes.settings:
+  type: config_object
+  label: 'Geofield Suntimes settings'
+  mapping:
+    gmap_api_key:
+      type: string
+      label: 'Google Maps API Key'

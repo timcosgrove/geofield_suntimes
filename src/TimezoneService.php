@@ -3,6 +3,7 @@
 namespace Drupal\geofield_suntimes;
 
 use Drupal\Component\Serialization\Json;
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Http\ClientFactory;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -19,10 +20,18 @@ class TimezoneService implements GeofieldSuntimesTimezoneInterface {
   protected $httpClientFactory;
 
   /**
+   * Config factory.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  protected $config;
+
+  /**
    * Constructs a new TimezoneService object.
    */
-  public function __construct(ClientFactory $httpClientFactory) {
+  public function __construct(ClientFactory $httpClientFactory, ConfigFactoryInterface $configFactory) {
     $this->httpClientFactory = $httpClientFactory;
+    $this->config = $configFactory;
   }
 
   /**
@@ -36,7 +45,8 @@ class TimezoneService implements GeofieldSuntimesTimezoneInterface {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('http_client_factory')
+      $container->get('http_client_factory'),
+      $container->get('config.factory')
     );
   }
 
@@ -64,12 +74,13 @@ class TimezoneService implements GeofieldSuntimesTimezoneInterface {
   public function getTimezone($lat, $lng) {
     $httpClient = $this->getClient();
     $url = 'https://maps.googleapis.com/maps/api/timezone/json';
+    $geofield_suntimes_settings = $this->config->get('geofield_suntimes.settings');
     $location = $lat . ',' . $lng;
     $queryOptions = [
       'query' => [
         'location' => $location,
         // Key needs to be pulled from config or secrets.
-        'key' => '',
+        'key' => $geofield_suntimes_settings->get('gmap_api_key'),
         'timestamp' => time(),
       ],
 
